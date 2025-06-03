@@ -24,7 +24,6 @@ String input = "";
 void setup() {
   Serial.begin(9600);
 
-  // LCD
   lcd.init();
   lcd.backlight();
   lcd.setCursor(0, 0);
@@ -36,7 +35,6 @@ void setup() {
   pinMode(enB, OUTPUT);  pinMode(in3, OUTPUT);  pinMode(in4, OUTPUT);
 
   pinMode(enGripper, OUTPUT);  pinMode(gripperIn1, OUTPUT);  pinMode(gripperIn2, OUTPUT);
-
   pinMode(enLifter, OUTPUT);   pinMode(lifterIn1, OUTPUT);   pinMode(lifterIn2, OUTPUT);
 
   stopMotor();
@@ -100,15 +98,15 @@ void mundur() {
 }
 
 void belokKiri() {
-  digitalWrite(in1, LOW); digitalWrite(in2, LOW);
+  digitalWrite(in1, LOW); digitalWrite(in2, HIGH);
   digitalWrite(in3, HIGH); digitalWrite(in4, LOW);
-  analogWrite(enA, 0); analogWrite(enB, 200);
+  analogWrite(enA, 200); analogWrite(enB, 200);
 }
 
 void belokKanan() {
   digitalWrite(in1, HIGH); digitalWrite(in2, LOW);
-  digitalWrite(in3, LOW); digitalWrite(in4, LOW);
-  analogWrite(enA, 200); analogWrite(enB, 0);
+  digitalWrite(in3, LOW); digitalWrite(in4, HIGH);
+  analogWrite(enA, 200); analogWrite(enB, 200);
 }
 
 void stopMotor() {
